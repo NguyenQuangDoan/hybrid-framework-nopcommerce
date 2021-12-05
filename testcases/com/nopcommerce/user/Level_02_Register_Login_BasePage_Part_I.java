@@ -15,12 +15,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Level_01_Register_Login_BasePage_Part_II {
+public class Level_02_Register_Login_BasePage_Part_I {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String emailAddress;
 
-	BasePage basePage = BasePage.getBasePage();
+	BasePage basePage;
 
 	@BeforeClass
 	public void beforeClass() {
@@ -32,6 +32,8 @@ public class Level_01_Register_Login_BasePage_Part_II {
 		// Chrome
 //	System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 //	driver = new ChromeDriver();
+
+		basePage = new BasePage();
 
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.vn";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -120,8 +122,8 @@ public class Level_01_Register_Login_BasePage_Part_II {
 		basePage.sendkeysToElement(driver, "//input[@id='FirstName']", "Automation");
 		basePage.sendkeysToElement(driver, "//input[@id='LastName']", "FC");
 		basePage.sendkeysToElement(driver, "//input[@id='Email']", emailAddress);
-		basePage.sendkeysToElement(driver, "//input[@id='Password']", "1234");
-		basePage.sendkeysToElement(driver, "//input[@id='ConfirmPassword']", "123467");
+		basePage.sendkeysToElement(driver, "//input[@id='Password']", "123456");
+		basePage.sendkeysToElement(driver, "//input[@id='ConfirmPassword']", "654321");
 		basePage.clickToElement(driver, "//button[@id='register-button']");
 		
 		Assert.assertEquals(basePage.getElementText(driver, "//span[@id='ConfirmPassword-error']"), "The password and confirmation password do not match.");
