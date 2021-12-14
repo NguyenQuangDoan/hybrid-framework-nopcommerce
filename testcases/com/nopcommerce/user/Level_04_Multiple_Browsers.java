@@ -1,0 +1,141 @@
+package com.nopcommerce.user;
+
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import commons.BasePage;
+import commons.BaseTest;
+import pageObjects.HomePageObject;
+import pageObjects.RegisterPageObject;
+
+public class Level_04_Multiple_Browsers extends BaseTest {
+	private WebDriver driver;
+	private String emailAddress;
+	private HomePageObject homePage;
+	private RegisterPageObject registerPage;
+
+	@Parameters({"browser","url"})
+	@BeforeClass
+	public void beforeClass(String browserName, String url) {
+		driver = getBrowserDriver(browserName, url);
+		emailAddress = "afc" + generateFakeNumber() + "@gmail.vn";
+		homePage = new HomePageObject(driver);
+	}
+
+	@Test
+	public void TC_01_Register_Empty_Data() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getFirstNameErrorMessage(), "First name is required.");
+		Assert.assertEquals(registerPage.getLastNameErrorMessage(), "Last name is required.");
+		Assert.assertEquals(registerPage.getEmailErrorMessage(), "Email is required.");
+		Assert.assertEquals(registerPage.getPasswordErrorMessage(), "Password is required.");
+		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), "Password is required.");
+	}
+
+	@Test
+	public void TC_02_Invalid_Email() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.sendkeysToFirstNameTextbox("FC");
+		registerPage.sendkeysToLastNameTextbox("Automation");
+		registerPage.sendkeysToEmailTextbox("123@456$%^");
+		registerPage.sendkeysToPasswordTextbox("123456");
+		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getEmailErrorMessage(), "Wrong email");
+	}
+
+	@Test
+	public void TC_03_Register_Success() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.sendkeysToFirstNameTextbox("FC");
+		registerPage.sendkeysToLastNameTextbox("Automation");
+		registerPage.sendkeysToEmailTextbox(emailAddress);
+		registerPage.sendkeysToPasswordTextbox("123456");
+		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getRegisteredSuccessMessage(), "Your registration completed");
+
+		registerPage.clickToLogoutLink();
+		homePage = new HomePageObject(driver);
+	}
+
+	@Test
+	public void TC_04_Register_Existing_Email() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.sendkeysToFirstNameTextbox("FC");
+		registerPage.sendkeysToLastNameTextbox("Automation");
+		registerPage.sendkeysToEmailTextbox(emailAddress);
+		registerPage.sendkeysToPasswordTextbox("123456");
+		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getExistedEmailErrorMessage(), "The specified email already exists");
+	}
+
+	@Test
+	public void TC_05_Register_Password_Less_Than_6_Chars() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.sendkeysToFirstNameTextbox("FC");
+		registerPage.sendkeysToLastNameTextbox("Automation");
+		registerPage.sendkeysToEmailTextbox(emailAddress);
+		registerPage.sendkeysToPasswordTextbox("123");
+		registerPage.sendkeysToConfirmPasswordTextbox("123");
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getPasswordErrorMessage(),
+				"Password must meet the following rules:\nmust have at least 6 characters");
+	}
+
+	@Test
+	public void TC_06_Register_Invalid_Confirm_Password() {
+		homePage.clickToRegisterLink();
+		registerPage = new RegisterPageObject(driver);
+
+		registerPage.sendkeysToFirstNameTextbox("FC");
+		registerPage.sendkeysToLastNameTextbox("Automation");
+		registerPage.sendkeysToEmailTextbox(emailAddress);
+		registerPage.sendkeysToPasswordTextbox("123456");
+		registerPage.sendkeysToConfirmPasswordTextbox("654312");
+		registerPage.clickToRegisterButton();
+
+		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(),
+				"The password and confirmation password do not match.");
+
+	}
+
+	@AfterClass
+	public void afterClass() {
+		driver.quit();
+	}
+
+	public int generateFakeNumber() {
+		Random rand = new Random();
+		return rand.nextInt(9999);
+	}
+}
