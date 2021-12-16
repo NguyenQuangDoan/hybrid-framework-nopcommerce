@@ -14,16 +14,16 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageFactory.HomePageObject;
+import pageFactory.RegisterPageObject;
 
-public class Level_04_Multiple_Browsers extends BaseTest {
+public class Level_05_Page_Factory extends BaseTest {
 	private WebDriver driver;
 	private String emailAddress;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 
-	@Parameters({ "browser", "url" })
+	@Parameters({"browser","url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
 		driver = getBrowserDriver(browserName, url);
