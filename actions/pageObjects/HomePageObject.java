@@ -13,9 +13,22 @@ public class HomePageObject extends BasePage {
 		driver = _driver;
 	}
 
-	public void clickToRegisterLink() {
+	public RegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, homePageUI.REGISTER_LINK);
 		clickToElement(driver, homePageUI.REGISTER_LINK);
+		return new RegisterPageObject(driver);
+	}
+	
+	
+	public LoginPageObject clickToLoginLink() {
+		waitForElementClickable(driver, homePageUI.LOGIN_LINK);
+		clickToElement(driver, homePageUI.LOGIN_LINK);
+		return PageGeneratorManager.getLoginPage(driver);
 	}
 
+	public CustomerInfoPageObject clickToMyAccountLink(){
+		waitForElementClickable(driver, homePageUI.MY_ACCOUNT_LINK);
+		clickToElement(driver, homePageUI.MY_ACCOUNT_LINK);
+		return PageGeneratorManager.getCustomerInfoPage(driver);
+	}
 }

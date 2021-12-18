@@ -45,27 +45,27 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, registerPageUI.CONFIRM_PASSWORD_ERROR_MESSAGE);
 	}
 
-	public void sendkeysToFirstNameTextbox(String firstName) {
+	public void inputToFirstNameTextbox(String firstName) {
 		waitForElementVisible(driver, registerPageUI.FIRST_NAME_TEXTBOX);
 		sendkeysToElement(driver, registerPageUI.FIRST_NAME_TEXTBOX, firstName);
 	}
 
-	public void sendkeysToLastNameTextbox(String lastName) {
+	public void inputToLastNameTextbox(String lastName) {
 		waitForElementVisible(driver, registerPageUI.LAST_NAME_TEXTBOX);
 		sendkeysToElement(driver, registerPageUI.LAST_NAME_TEXTBOX, lastName);
 	}
 
-	public void sendkeysToEmailTextbox(String emailAddress) {
+	public void inputToEmailTextbox(String emailAddress) {
 		waitForElementVisible(driver, registerPageUI.EMAIL_TEXTBOX);
 		sendkeysToElement(driver, registerPageUI.EMAIL_TEXTBOX, emailAddress);
 	}
 
-	public void sendkeysToPasswordTextbox(String password) {
+	public void inputToPasswordTextbox(String password) {
 		waitForElementVisible(driver, registerPageUI.PASSWORD_TEXTBOX);
 		sendkeysToElement(driver, registerPageUI.PASSWORD_TEXTBOX, password);
 	}
 
-	public void sendkeysToConfirmPasswordTextbox(String confirmPassword) {
+	public void inputToConfirmPasswordTextbox(String confirmPassword) {
 		waitForElementVisible(driver, registerPageUI.CONFIRM_PASSWORD_TEXTBOX);
 		sendkeysToElement(driver, registerPageUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);
 	}
@@ -75,9 +75,10 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, registerPageUI.REGISTERED_SUCESS_MESSAGE);
 	}
 
-	public void clickToLogoutLink() {
+	public HomePageObject clickToLogoutLink() {
 		waitForElementClickable(driver, registerPageUI.LOGOUT_LINK);
 		clickToElement(driver, registerPageUI.LOGOUT_LINK);
+		return PageGeneratorManager.getHomePage(driver);
 	}
 
 	public String getExistedEmailErrorMessage() {

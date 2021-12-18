@@ -50,11 +50,11 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 
-		registerPage.sendkeysToFirstNameTextbox("FC");
-		registerPage.sendkeysToLastNameTextbox("Automation");
-		registerPage.sendkeysToEmailTextbox("123@456$%^");
-		registerPage.sendkeysToPasswordTextbox("123456");
-		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+		registerPage.inputToFirstNameTextbox("FC");
+		registerPage.inputToLastNameTextbox("Automation");
+		registerPage.inputToEmailTextbox("123@456$%^");
+		registerPage.inputToPasswordTextbox("123456");
+		registerPage.inputToConfirmPasswordTextbox("123456");
 
 		registerPage.clickToRegisterButton();
 
@@ -66,11 +66,11 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 
-		registerPage.sendkeysToFirstNameTextbox("FC");
-		registerPage.sendkeysToLastNameTextbox("Automation");
-		registerPage.sendkeysToEmailTextbox(emailAddress);
-		registerPage.sendkeysToPasswordTextbox("123456");
-		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+		registerPage.inputToFirstNameTextbox("FC");
+		registerPage.inputToLastNameTextbox("Automation");
+		registerPage.inputToEmailTextbox(emailAddress);
+		registerPage.inputToPasswordTextbox("123456");
+		registerPage.inputToConfirmPasswordTextbox("123456");
 
 		registerPage.clickToRegisterButton();
 
@@ -85,11 +85,11 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 
-		registerPage.sendkeysToFirstNameTextbox("FC");
-		registerPage.sendkeysToLastNameTextbox("Automation");
-		registerPage.sendkeysToEmailTextbox(emailAddress);
-		registerPage.sendkeysToPasswordTextbox("123456");
-		registerPage.sendkeysToConfirmPasswordTextbox("123456");
+		registerPage.inputToFirstNameTextbox("FC");
+		registerPage.inputToLastNameTextbox("Automation");
+		registerPage.inputToEmailTextbox(emailAddress);
+		registerPage.inputToPasswordTextbox("123456");
+		registerPage.inputToConfirmPasswordTextbox("123456");
 		registerPage.clickToRegisterButton();
 
 		Assert.assertEquals(registerPage.getExistedEmailErrorMessage(), "The specified email already exists");
@@ -100,11 +100,11 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 
-		registerPage.sendkeysToFirstNameTextbox("FC");
-		registerPage.sendkeysToLastNameTextbox("Automation");
-		registerPage.sendkeysToEmailTextbox(emailAddress);
-		registerPage.sendkeysToPasswordTextbox("123");
-		registerPage.sendkeysToConfirmPasswordTextbox("123");
+		registerPage.inputToFirstNameTextbox("FC");
+		registerPage.inputToLastNameTextbox("Automation");
+		registerPage.inputToEmailTextbox(emailAddress);
+		registerPage.inputToPasswordTextbox("123");
+		registerPage.inputToConfirmPasswordTextbox("123");
 		registerPage.clickToRegisterButton();
 
 		Assert.assertEquals(registerPage.getPasswordErrorMessage(),
@@ -116,11 +116,11 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		homePage.clickToRegisterLink();
 		registerPage = new RegisterPageObject(driver);
 
-		registerPage.sendkeysToFirstNameTextbox("FC");
-		registerPage.sendkeysToLastNameTextbox("Automation");
-		registerPage.sendkeysToEmailTextbox(emailAddress);
-		registerPage.sendkeysToPasswordTextbox("123456");
-		registerPage.sendkeysToConfirmPasswordTextbox("654312");
+		registerPage.inputToFirstNameTextbox("FC");
+		registerPage.inputToLastNameTextbox("Automation");
+		registerPage.inputToEmailTextbox(emailAddress);
+		registerPage.inputToPasswordTextbox("123456");
+		registerPage.inputToConfirmPasswordTextbox("654312");
 		registerPage.clickToRegisterButton();
 
 		Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(),
