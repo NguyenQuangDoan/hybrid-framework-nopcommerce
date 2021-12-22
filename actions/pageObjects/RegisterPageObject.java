@@ -86,4 +86,5 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, registerPageUI.EXISTED_EMAIL_ERROR_MESSAGE);
 	}
 
+
 }

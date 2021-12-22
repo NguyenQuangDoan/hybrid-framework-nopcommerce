@@ -6,4 +6,6 @@ public class CustomerInfoPageUI {
 	public final static String EMAIL_ADDRESS_TEXTBOX = "//input[@id='Email']";
 	public final static String SAVE_BUTTON = "//button[@id='save-info-button']";
 	
+	public final static String ORDERS_LINK = "//div[@class='side-2']//a[contains(text(), 'Orders')]";
+	public final static String ADDRESS_LINK = "//div[@class='side-2']//a[contains(text(), 'Address')]";
 }
