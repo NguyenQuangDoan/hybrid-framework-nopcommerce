@@ -1,17 +1,18 @@
-package pageObjects;
+package pageObjects.users;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import commons.PageGeneratorManager;
+import pageUIs.UserRegisterPageUI;
 
-public class RegisterPageObject extends BasePage {
+public class UserRegisterPageObject extends BasePage {
 
-	private RegisterPageUI registerPageUI = new RegisterPageUI();
+	private UserRegisterPageUI registerPageUI = new UserRegisterPageUI();
 
 	private WebDriver driver;
 
-	public RegisterPageObject(WebDriver _driver) {
+	public UserRegisterPageObject(WebDriver _driver) {
 		driver = _driver;
 	}
 
@@ -75,10 +76,10 @@ public class RegisterPageObject extends BasePage {
 		return getElementText(driver, registerPageUI.REGISTERED_SUCESS_MESSAGE);
 	}
 
-	public HomePageObject clickToLogoutLink() {
+	public UserHomePageObject clickToLogoutLink() {
 		waitForElementClickable(driver, registerPageUI.LOGOUT_LINK);
 		clickToElement(driver, registerPageUI.LOGOUT_LINK);
-		return PageGeneratorManager.getHomePage(driver);
+		return PageGeneratorManager.getUserHomePage(driver);
 	}
 
 	public String getExistedEmailErrorMessage() {

@@ -14,27 +14,27 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.users.UserHomePageObject;
+import pageObjects.users.UserRegisterPageObject;
 
 public class Level_04_Multiple_Browsers extends BaseTest {
 	private WebDriver driver;
 	private String emailAddress;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
 		driver = getBrowserDriver(browserName, url);
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.vn";
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 	@Test
 	public void TC_01_Register_Empty_Data() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.clickToRegisterButton();
 
@@ -48,7 +48,7 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 	@Test
 	public void TC_02_Invalid_Email() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextbox("FC");
 		registerPage.inputToLastNameTextbox("Automation");
@@ -64,7 +64,7 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 	@Test
 	public void TC_03_Register_Success() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextbox("FC");
 		registerPage.inputToLastNameTextbox("Automation");
@@ -77,13 +77,13 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 		Assert.assertEquals(registerPage.getRegisteredSuccessMessage(), "Your registration completed");
 
 		registerPage.clickToLogoutLink();
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 	@Test
 	public void TC_04_Register_Existing_Email() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextbox("FC");
 		registerPage.inputToLastNameTextbox("Automation");
@@ -98,7 +98,7 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 	@Test
 	public void TC_05_Register_Password_Less_Than_6_Chars() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextbox("FC");
 		registerPage.inputToLastNameTextbox("Automation");
@@ -114,7 +114,7 @@ public class Level_04_Multiple_Browsers extends BaseTest {
 	@Test
 	public void TC_06_Register_Invalid_Confirm_Password() {
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextbox("FC");
 		registerPage.inputToLastNameTextbox("Automation");
