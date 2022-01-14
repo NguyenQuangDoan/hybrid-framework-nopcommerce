@@ -29,7 +29,7 @@ public abstract class BaseTest {
 			throw new RuntimeException("This browser is not supported");
 		}
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalContants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.get(urlName);
 		driver.manage().window().maximize();
 		return driver;

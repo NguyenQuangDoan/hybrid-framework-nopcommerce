@@ -466,7 +466,7 @@ public class BasePage {
 				.until(ExpectedConditions.invisibilityOfAllElements(getWebElements(driver, locatorType)));
 	}
 
-	private long longTimeout = 30;
+	private long longTimeout = GlobalContants.LONG_TIMEOUT;
 
 	// Tối ưu bài Level_07_Switch_Paege
 	public UserOrderPageObject openOrderPage(WebDriver driver) {
