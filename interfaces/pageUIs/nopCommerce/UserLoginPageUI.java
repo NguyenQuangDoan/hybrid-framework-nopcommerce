@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce;
 
 public class UserLoginPageUI {
 	public static String EMAIL_TEXTBOX = "xpath=//input[@id='Email']";

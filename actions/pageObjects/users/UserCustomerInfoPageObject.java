@@ -5,8 +5,8 @@ import org.openqa.selenium.remote.server.handler.GetElementAttribute;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
-import pageUIs.UserCustomerInfoPageUI;
-import pageUIs.UserHomePageUI;
+import pageUIs.nopCommerce.UserCustomerInfoPageUI;
+import pageUIs.nopCommerce.UserHomePageUI;
 
 public class UserCustomerInfoPageObject extends BasePage {
 	private UserHomePageUI homePageUI = new UserHomePageUI();

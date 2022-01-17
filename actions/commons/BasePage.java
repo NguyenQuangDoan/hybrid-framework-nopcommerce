@@ -24,7 +24,7 @@ import pageObjects.users.UserCustomerInfoPageObject;
 import pageObjects.users.UserHomePageObject;
 import pageObjects.users.UserOrderPageObject;
 import pageObjects.users.UserRewardPointPageObject;
-import pageUIs.BasePageUI;
+import pageUIs.nopCommerce.BasePageUI;
 
 public class BasePage {
 
@@ -184,7 +184,7 @@ public class BasePage {
 	}
 	
 	public void sendkeysToElement(WebDriver driver, String locatorType, String textValue, String... dynamicValues) {
-		getWebElement(driver, locatorType).clear();
+		getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).clear();
 		getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).sendKeys(textValue);
 	}
 
@@ -305,6 +305,10 @@ public class BasePage {
 
 	public void pressKeyboardToElement(WebDriver driver, String locatorType, Keys key) {
 		new Actions(driver).sendKeys(getWebElement(driver, locatorType), key).perform();
+	}
+	
+	public void pressKeyboardToElement(WebDriver driver, String locatorType, Keys key, String... dynamicValues) {
+		new Actions(driver).sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), key).perform();
 	}
 
 	public Object executeForBrowser(WebDriver driver, String javaScript) {
@@ -459,6 +463,11 @@ public class BasePage {
 	public void waitForAllElementVisible(WebDriver driver, String locatorType) {
 		new WebDriverWait(driver, longTimeout)
 				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(locatorType)));
+	}
+	
+	public void waitForAllElementVisible(WebDriver driver, String locatorType, String... dynamicValues) {
+		new WebDriverWait(driver, longTimeout)
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(getDynamicXpath(locatorType, dynamicValues))));
 	}
 
 	public void waitForAllElementInvisible(WebDriver driver, String locatorType) {

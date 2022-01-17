@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
-import pageUIs.UserRegisterPageUI;
+import pageUIs.nopCommerce.UserRegisterPageUI;
 
 public class UserRegisterPageObject extends BasePage {
 

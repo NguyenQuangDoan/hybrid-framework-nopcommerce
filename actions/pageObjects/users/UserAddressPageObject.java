@@ -3,7 +3,7 @@ package pageObjects.users;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.UserHomePageUI;
+import pageUIs.nopCommerce.UserHomePageUI;
 
 public class UserAddressPageObject extends BasePage {
 	private UserHomePageUI homePageUI = new UserHomePageUI();

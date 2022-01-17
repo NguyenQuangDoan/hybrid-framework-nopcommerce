@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce;
 
 public class BasePageUI {
 	public final static String REWARD_POINT_LINK = "xpath=//div[@class='side-2']//a[contains(text(), 'Reward')]";

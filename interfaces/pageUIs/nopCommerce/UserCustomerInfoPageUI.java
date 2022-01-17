@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce;
 
 public class UserCustomerInfoPageUI {
 	public final static String FIRST_NAME_TEXTBOX = "xpath=//input[@id='FirstName']";
