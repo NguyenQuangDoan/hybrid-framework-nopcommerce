@@ -15,4 +15,7 @@ public class GlobalContants {
 	public static final long SHORT_TIMEOUT = 5;
 	public static final long RETRY_TEST_FAIL = 3;
 	
+	public static final String GURU_ADMIN_URL = "http://live.techpanda.org/index.php/backendlogin/customer/";
+	public static final String GURU_USER_LOGIN_URL = "http://live.techpanda.org/index.php/customer/account/login/";
+	
 }

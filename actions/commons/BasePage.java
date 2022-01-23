@@ -267,10 +267,22 @@ public class BasePage {
 			getWebElement(driver, locatorType).click();
 		}
 	}
+	
+	public void checkToRadioOrCheckbox(WebDriver driver, String locatorType, String... dynamicValues) {
+		if (!getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).isSelected()) {
+			getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).click();
+		}
+	}
 
 	public void uncheckToCheckbox(WebDriver driver, String locatorType) {
 		if (getWebElement(driver, locatorType).isSelected()) {
 			getWebElement(driver, locatorType).click();
+		}
+	}
+	
+	public void uncheckToCheckbox(WebDriver driver, String locatorType, String... dynamicValues) {
+		if (getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).isSelected()) {
+			getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).click();
 		}
 	}
 
