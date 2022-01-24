@@ -1,4 +1,4 @@
-package pageUIs.jQuery;
+package pageUIs.jQuery.dataTable;
 
 public class adminDashBoardPageUI 	{
 	public static final String MESSAGE_POPUP = "xpath=//div[@class='message-popup-head']";

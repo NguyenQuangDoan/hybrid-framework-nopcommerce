@@ -1,6 +1,6 @@
 package pageUIs.nopCommerce;
 
-public class BasePageUI {
+public class BasePageNopCommerceUI {
 	public final static String REWARD_POINT_LINK = "xpath=//div[@class='side-2']//a[contains(text(), 'Reward')]";
 	public final static String CUSTOMER_INFO_LINK = "xpath=//div[@class='side-2']//a[contains(text(), 'Customer')]";
 	public final static String ORDERS_LINK = "xpath=//div[@class='side-2']//a[contains(text(), 'Orders')]";

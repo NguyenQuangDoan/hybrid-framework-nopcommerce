@@ -1,4 +1,4 @@
-package com.jquery.datatable;
+package com.jquery;
 
 import java.util.Random;
 
@@ -11,10 +11,10 @@ import org.testng.annotations.Test;
 
 import commons.BaseTest;
 import commons.GlobalContants;
-import pageObjectJQuery.PageGeneratorManager;
-import pageObjectJQuery.adminDashboardPageObject;
-import pageObjectJQuery.adminLoginPageObject;
-import pageObjectJQuery.homePageObject;
+import pageObjectJQuery.dataTable.PageGeneratorManager;
+import pageObjectJQuery.dataTable.adminDashboardPageObject;
+import pageObjectJQuery.dataTable.adminLoginPageObject;
+import pageObjectJQuery.dataTable.homePageObject;
 
 
 public class Level_10_DataTable_DataGrid extends BaseTest {

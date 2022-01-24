@@ -1,4 +1,4 @@
-package pageObjectJQuery;
+package pageObjectJQuery.dataTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
-import pageUIs.jQuery.adminDashBoardPageUI;
-import pageUIs.jQuery.homePageUI;
+import pageUIs.jQuery.dataTable.adminDashBoardPageUI;
+import pageUIs.jQuery.dataTable.homePageUI;
 
 public class adminDashboardPageObject extends BasePage{
 	WebDriver driver;

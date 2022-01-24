@@ -1,4 +1,4 @@
-package pageUIs.jQuery;
+package pageUIs.jQuery.dataTable;
 
 public class adminLoginPageUI {
 	public static final String USER_NAME_INPUT = "css=input#username";
