@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce - User">
+
+	<listeners>
+	<listener class-name="commons.MethodListener"></listener>
+	</listeners>
+	
 	<parameter name="url" value="http://live.techpanda.org/" />
 	<test name="RUN on FIREFOX">
 		<parameter name="browser" value="firefox" />

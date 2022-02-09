@@ -507,6 +507,7 @@ public class BasePage {
 		}
 		fullFileName = fullFileName.trim();
 		getWebElement(driver, BasePageJQueryUI.UPLOAD_FILE).sendKeys(fullFileName);
+		System.out.println(fullFileName);
 	}
 
 	private long longTimeout = GlobalContants.LONG_TIMEOUT;
