@@ -1,4 +1,4 @@
-package pageObjectJQuery.uploadFiles;
+package pageObjectsJQuery.uploadFiles;
 
 import java.util.List;
 

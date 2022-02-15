@@ -2,8 +2,8 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObject.admin.AdminDashBoardPageObject;
-import pageObject.admin.AdminLoginPageObject;
+import pageObjects.admin.AdminDashBoardPageObject;
+import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.users.UserAddressPageObject;
 import pageObjects.users.UserCustomerInfoPageObject;
 import pageObjects.users.UserHomePageObject;

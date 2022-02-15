@@ -2,11 +2,13 @@ package commons;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,7 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObject.admin.AdminLoginPageObject;
+import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.users.UserAddressPageObject;
 import pageObjects.users.UserCustomerInfoPageObject;
 import pageObjects.users.UserHomePageObject;
@@ -290,11 +292,29 @@ public class BasePage {
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locatorType) {
-		return getWebElement(driver, locatorType).isDisplayed();
+		try {
+			return getWebElement(driver, locatorType).isDisplayed();
+		} catch (NoSuchElementException e) {
+			return false;
+		}
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locatorType, String... dynamicValues) {
 		return getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).isDisplayed();
+	}
+
+	public boolean isElementUndisplayed(WebDriver driver, String locator) {
+		overrideGlobalTimeout(driver, ShortTimeOut);
+		List<WebElement> elements = getWebElements(driver, locator);
+		overrideGlobalTimeout(driver, longTimeout);
+
+		if (elements.size() == 0) {
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean isElementEnabled(WebDriver driver, String locatorType) {
@@ -303,6 +323,10 @@ public class BasePage {
 
 	public boolean isElementSelected(WebDriver driver, String locatorType) {
 		return getWebElement(driver, locatorType).isSelected();
+	}
+
+	public void overrideGlobalTimeout(WebDriver driver, long timeOut) {
+		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 	}
 
 	public void switchToFrame(WebDriver driver, String locatorType) {
@@ -484,6 +508,17 @@ public class BasePage {
 				.invisibilityOfElementLocated(getByLocator(getDynamicXpath(locatorType, dynamicValues))));
 	}
 
+	/*
+	 * Wait for element undisplayed in DOM or not in DOM and override implicit
+	 * timeout
+	 */
+	public void waitForElementUndisplayed(WebDriver driver, String locatorType) {
+		WebDriverWait explicitwait = new WebDriverWait(driver, ShortTimeOut);
+		overrideGlobalTimeout(driver, ShortTimeOut);
+		explicitwait.until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(locatorType)));
+		overrideGlobalTimeout(driver, LongTimeOut);
+	}
+
 	public void waitForAllElementVisible(WebDriver driver, String locatorType) {
 		new WebDriverWait(driver, longTimeout)
 				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(locatorType)));
@@ -573,4 +608,8 @@ public class BasePage {
 		clickToElement(driver, BasePageNopCommerceUI.USER_LOGOUT_LINK);
 		return PageGeneratorManager.getUserHomePage(driver);
 	}
+
+	private long LongTimeOut = GlobalContants.LONG_TIMEOUT;
+	private long ShortTimeOut = GlobalContants.SHORT_TIMEOUT;
+
 }

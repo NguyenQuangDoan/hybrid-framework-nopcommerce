@@ -2,7 +2,7 @@
 <suite parallel="false" name="NopCommerce - User">
 
 	<listeners>
-	<listener class-name="commons.MethodListener"></listener>
+	<listener class-name="commons.MethodListener" />
 	</listeners>
 	
 	<parameter name="url" value="http://live.techpanda.org/" />

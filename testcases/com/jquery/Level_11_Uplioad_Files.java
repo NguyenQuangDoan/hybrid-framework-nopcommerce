@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjectJQuery.uploadFiles.PageGeneratorManager;
-import pageObjectJQuery.uploadFiles.homePageObject;
+import pageObjectsJQuery.uploadFiles.PageGeneratorManager;
+import pageObjectsJQuery.uploadFiles.homePageObject;
 
 public class Level_11_Uplioad_Files extends BaseTest {
 	String dalatFileName = "Dalat.jpg";

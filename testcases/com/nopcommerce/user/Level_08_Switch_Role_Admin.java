@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalContants;
 import commons.PageGeneratorManager;
-import pageObject.admin.AdminLoginPageObject;
+import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.users.UserAddressPageObject;
 import pageObjects.users.UserCustomerInfoPageObject;
 import pageObjects.users.UserHomePageObject;

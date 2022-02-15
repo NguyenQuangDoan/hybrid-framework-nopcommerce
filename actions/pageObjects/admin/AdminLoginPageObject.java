@@ -1,4 +1,4 @@
-package pageObject.admin;
+package pageObjects.admin;
 
 import org.openqa.selenium.WebDriver;
 
