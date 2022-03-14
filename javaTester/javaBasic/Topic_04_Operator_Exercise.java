@@ -2,8 +2,6 @@ package javaBasic;
 
 import java.util.Scanner;
 
-import org.testng.annotations.Test;
-
 public class Topic_04_Operator_Exercise {
 
 //	public static void main(String[] arg) {

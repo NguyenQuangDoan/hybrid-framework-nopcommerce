@@ -1,11 +1,5 @@
 package javaBasic;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-
-import org.testng.annotations.Test;
-
 public class Topic_11_Array_Exercise {
 	int[] arr = {2 ,7 ,6 ,8 ,9, -5, -8, -4, 10, 5};
 

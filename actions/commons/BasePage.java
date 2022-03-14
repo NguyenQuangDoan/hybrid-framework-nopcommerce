@@ -547,7 +547,6 @@ public class BasePage {
 
 	private long longTimeout = GlobalContants.LONG_TIMEOUT;
 
-	// Tối ưu bài Level_07_Switch_Paege
 	public UserOrderPageObject openOrderPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageNopCommerceUI.ORDERS_LINK);
 		clickToElement(driver, BasePageNopCommerceUI.ORDERS_LINK);
@@ -572,7 +571,6 @@ public class BasePage {
 		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 
-	// Tối ưu bài Level_09_Dynamic_Locator
 	public BasePage openPagesAtMyAccountPageByName(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
 		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);

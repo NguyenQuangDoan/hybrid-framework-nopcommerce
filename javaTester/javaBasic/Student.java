@@ -1,11 +1,5 @@
 package javaBasic;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-
-import org.testng.annotations.Test;
-
 public class Student {
 	
 	int id;

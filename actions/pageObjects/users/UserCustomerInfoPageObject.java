@@ -1,8 +1,6 @@
 package pageObjects.users;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.server.handler.GetElementAttribute;
-
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import pageUIs.nopCommerce.UserCustomerInfoPageUI;

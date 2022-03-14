@@ -15,21 +15,21 @@ public class UserHomePageObject extends BasePage {
 	}
 
 	public UserRegisterPageObject clickToRegisterLink() {
-		waitForElementClickable(driver, homePageUI.REGISTER_LINK);
-		clickToElement(driver, homePageUI.REGISTER_LINK);
+		waitForElementClickable(driver, UserHomePageUI.REGISTER_LINK);
+		clickToElement(driver, UserHomePageUI.REGISTER_LINK);
 		return new UserRegisterPageObject(driver);
 	}
 	
 	
 	public UserLoginPageObject clickToLoginLink() {
-		waitForElementClickable(driver, homePageUI.LOGIN_LINK);
-		clickToElement(driver, homePageUI.LOGIN_LINK);
+		waitForElementClickable(driver, UserHomePageUI.LOGIN_LINK);
+		clickToElement(driver, UserHomePageUI.LOGIN_LINK);
 		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 
 	public UserCustomerInfoPageObject clickToMyAccountLink(){
-		waitForElementClickable(driver, homePageUI.MY_ACCOUNT_LINK);
-		clickToElement(driver, homePageUI.MY_ACCOUNT_LINK);
+		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
 		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 }

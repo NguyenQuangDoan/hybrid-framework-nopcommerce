@@ -15,18 +15,18 @@ public class UserLoginPageObject extends BasePage {
 	}
 
 	public void inputToEmailTextbox(String email) {
-		waitForElementClickable(driver, loginPageUI.EMAIL_TEXTBOX);
-		sendkeysToElement(driver, loginPageUI.EMAIL_TEXTBOX, email);
+		waitForElementClickable(driver, UserLoginPageUI.EMAIL_TEXTBOX);
+		sendkeysToElement(driver, UserLoginPageUI.EMAIL_TEXTBOX, email);
 	}
 
 	public void inputToPasswordTextbox(String password){
-		waitForElementClickable(driver, loginPageUI.PASSWORD_TEXTBOX);
-		sendkeysToElement(driver, loginPageUI.PASSWORD_TEXTBOX, password);
+		waitForElementClickable(driver, UserLoginPageUI.PASSWORD_TEXTBOX);
+		sendkeysToElement(driver, UserLoginPageUI.PASSWORD_TEXTBOX, password);
 	}
 	
 	public UserHomePageObject clickToLoginButton() {
-		waitForElementClickable(driver, loginPageUI.LOGIN_BUTTON);
-		clickToElement(driver, loginPageUI.LOGIN_BUTTON);
+		waitForElementClickable(driver, UserLoginPageUI.LOGIN_BUTTON);
+		clickToElement(driver, UserLoginPageUI.LOGIN_BUTTON);
 		return PageGeneratorManager.getUserHomePage(driver);
 	}
 

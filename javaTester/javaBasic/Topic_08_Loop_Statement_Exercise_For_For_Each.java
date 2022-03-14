@@ -1,6 +1,5 @@
 package javaBasic;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Topic_08_Loop_Statement_Exercise_For_For_Each {

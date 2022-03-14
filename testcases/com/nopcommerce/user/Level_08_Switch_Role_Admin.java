@@ -1,13 +1,7 @@
 package com.nopcommerce.user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -17,13 +11,7 @@ import commons.BaseTest;
 import commons.GlobalContants;
 import commons.PageGeneratorManager;
 import pageObjects.admin.AdminLoginPageObject;
-import pageObjects.users.UserAddressPageObject;
-import pageObjects.users.UserCustomerInfoPageObject;
 import pageObjects.users.UserHomePageObject;
-import pageObjects.users.UserLoginPageObject;
-import pageObjects.users.UserOrderPageObject;
-import pageObjects.users.UserRegisterPageObject;
-import pageObjects.users.UserRewardPointPageObject;
 
 public class Level_08_Switch_Role_Admin extends BaseTest {
 	private WebDriver driver;
