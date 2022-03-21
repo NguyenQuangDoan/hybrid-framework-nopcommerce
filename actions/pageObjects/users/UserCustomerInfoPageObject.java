@@ -1,6 +1,7 @@
 package pageObjects.users;
 
 import org.openqa.selenium.WebDriver;
+
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import pageUIs.nopCommerce.UserCustomerInfoPageUI;

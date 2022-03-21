@@ -87,5 +87,8 @@ public class UserRegisterPageObject extends BasePage {
 		return getElementText(driver, UserRegisterPageUI.EXISTED_EMAIL_ERROR_MESSAGE);
 	}
 
-
+	public String getRegisterSuccessMessage() {
+		waitForElementVisible(driver, UserRegisterPageUI.REGISTER_SUCCESS_MESSAGE);
+		return getElementText(driver, UserRegisterPageUI.REGISTER_SUCCESS_MESSAGE);
+	}
 }

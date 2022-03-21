@@ -15,4 +15,5 @@ public class UserRegisterPageUI {
 	public static final String PASSWORD_TEXTBOX = "xpath=//input[@id='Password']";
 	public static final String CONFIRM_PASSWORD_TEXTBOX = "xpath=//input[@id='ConfirmPassword']";
 	public static final String LOGOUT_LINK = "xpath=//a[@class='ico-logout']";
+	public static final String REGISTER_SUCCESS_MESSAGE = "xpath=//div[@class='result']";
 }
