@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -15,7 +16,7 @@ import pageObjects.users.UserHomePageObject;
 import pageObjects.users.UserLoginPageObject;
 import pageObjects.users.UserRegisterPageObject;
 
-public class Level_14_Log_ReportNG extends BaseTest {
+public class Level_17_Custom_Close_Driver extends BaseTest {
 	private WebDriver driver;
 	private UserHomePageObject homePage;
 	private UserRegisterPageObject registerPage;
@@ -34,10 +35,7 @@ public class Level_14_Log_ReportNG extends BaseTest {
 		lastName = "Terry";
 		emailAddress = "johnterry" + generateFakeNumber() + "@mail.net";
 		password = "123456";
-	}
 
-	@Test
-	public void User_01_Register() {
 		log.info("Register - Step 01: Navigate to 'Register' page");
 		registerPage = homePage.clickToRegisterLink();
 
@@ -59,16 +57,14 @@ public class Level_14_Log_ReportNG extends BaseTest {
 		log.info("Register - Step 07: Click to 'Register' button");
 		registerPage.clickToRegisterButton();
 
+		driver = null;
+
 		log.info("Register - Step 08: Verify Register success message is displayed");
-		verifyEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+		Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completedd");
 
 		log.info("Register - Step 09: Click to Logout link");
 		homePage = registerPage.clickToLogoutLink();
 
-	}
-
-	@Test
-	public void User_02_Login() {
 		log.info("Login - Step 01: Navigate to Login page");
 		loginPage = homePage.clickToLoginLink();
 
@@ -92,12 +88,21 @@ public class Level_14_Log_ReportNG extends BaseTest {
 
 		log.info("Login - Step 08: Enter to Email textbox with value is '" + emailAddress + "'");
 		verifyEquals(customerInfoPage.getEmailAddressText(), emailAddress);
+	}
+
+	@Test
+	public void User_01_Register() {
 
 	}
 
-	@AfterClass()
+	@Test
+	public void User_02_Login() {
+
+	}
+
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowserAndDriver();
 	}
 
 	public int generateFakeNumber() {
