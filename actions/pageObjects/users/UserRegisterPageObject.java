@@ -91,4 +91,5 @@ public class UserRegisterPageObject extends BasePage {
 		waitForElementVisible(driver, UserRegisterPageUI.REGISTER_SUCCESS_MESSAGE);
 		return getElementText(driver, UserRegisterPageUI.REGISTER_SUCCESS_MESSAGE);
 	}
+
 }

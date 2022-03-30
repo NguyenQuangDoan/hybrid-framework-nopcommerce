@@ -172,3 +172,64 @@
 [2022-03-25 22:47:10,135] Register - Step 08: Verify Register success message is displayed
 [2022-03-25 22:47:10,315] OS name = windows 10
 [2022-03-25 22:47:10,315] Driver instance name = firefoxdriver: firefox on windows (787b5bbf-eb02-4c8d-b085-da24a733c1c0)
+[2022-03-30 21:58:22,682] Register - Step 01: Navigate to 'Register' page
+[2022-03-30 21:58:23,373] Register - Step 02: Enter to Firstname textbox with value is 'John'
+[2022-03-30 21:58:53,493] Login - Step 01: Navigate to Login page
+[2022-03-30 21:58:54,147] Login - Step 02: Enter to Email textbox with value is 'johnterry9018@mail.net'
+[2022-03-30 21:58:54,259] Login - Step 03: Enter to Password textbox with value is '123456'
+[2022-03-30 21:59:24,277] OS name = windows 10
+[2022-03-30 21:59:24,278] Driver instance name = firefoxdriver: firefox on windows (34faf9bd-df28-40bb-94d6-5d680a26686a)
+[2022-03-30 22:25:35,929] Register - Step 01: Navigate to 'Register' page
+[2022-03-30 22:25:36,861] Register - Step 02: Enter to Firstname textbox with value is 'John'
+[2022-03-30 22:26:06,964] Login - Step 01: Navigate to Login page
+[2022-03-30 22:26:07,546] Login - Step 02: Enter to Email textbox with value is 'johnterry4123@mail.net'
+[2022-03-30 22:26:07,629] Login - Step 03: Enter to Password textbox with value is '123456'
+[2022-03-30 22:26:37,654] OS name = windows 10
+[2022-03-30 22:26:37,655] Driver instance name = firefoxdriver: firefox on windows (3c7f2805-3117-438f-92e6-036a598beeff)
+[2022-03-30 22:31:16,756] Register - Step 01: Navigate to 'Register' page
+[2022-03-30 22:31:17,758] Register - Step 02: Enter to Firstname textbox with value is 'John'
+[2022-03-30 22:31:17,830] Register - Step 03: Enter to Lastname textbox with value is 'Terry'
+[2022-03-30 22:31:18,791] Register - Step 04: Enter to Email textbox with value is 'johnterry5280@mail.net'
+[2022-03-30 22:31:18,884] Register - Step 05: Enter to Password textbox with value is '123456'
+[2022-03-30 22:31:18,946] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[2022-03-30 22:31:29,027] Register - Step 07: Click to 'Register' button
+[2022-03-30 22:31:30,070] Register - Step 08: Verify Register success message is displayed
+[2022-03-30 22:31:30,130] Register - Step 09: Click to Logout link
+[2022-03-30 22:31:31,024] Login - Step 01: Navigate to Login page
+[2022-03-30 22:31:31,647] Login - Step 02: Enter to Email textbox with value is 'johnterry5280@mail.net'
+[2022-03-30 22:31:31,723] Login - Step 03: Enter to Password textbox with value is '123456'
+[2022-03-30 22:32:01,749] OS name = windows 10
+[2022-03-30 22:32:01,749] Driver instance name = firefoxdriver: firefox on windows (d9d24046-da36-4594-8c90-a705b5df6294)
+[2022-03-30 22:46:55,067] Register - Step 01: Navigate to 'Register' page
+[2022-03-30 22:46:56,109] Register - Step 02: Enter to Firstname textbox with value is 'John'
+[2022-03-30 22:46:56,177] Register - Step 03: Enter to Lastname textbox with value is 'Terry'
+[2022-03-30 22:46:57,097] Register - Step 04: Enter to Email textbox with value is 'johnterry6279@mail.net'
+[2022-03-30 22:46:57,200] Register - Step 05: Enter to Password textbox with value is '123456'
+[2022-03-30 22:46:57,255] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[2022-03-30 22:46:57,310] Register - Step 07: Click to 'Register' button
+[2022-03-30 22:46:58,274] Register - Step 08: Verify Register success message is displayed
+[2022-03-30 22:46:58,322] Register - Step 09: Click to Logout link
+[2022-03-30 22:46:59,391] Login - Step 01: Navigate to Login page
+[2022-03-30 22:47:00,082] Login - Step 02: Enter to Email textbox with value is 'johnterry6279@mail.net'
+[2022-03-30 22:47:00,155] Login - Step 03: Enter to Password textbox with value is '123456'
+[2022-03-30 22:47:30,181] My Account - Step 01: Navigate to My Account link
+[2022-03-30 22:48:00,458] Register - Step 01: Navigate to 'Register' page
+[2022-03-30 22:48:01,518] Register - Step 02: Enter to Firstname textbox with value is 'John'
+[2022-03-30 22:48:01,608] Register - Step 03: Enter to Lastname textbox with value is 'Terry'
+[2022-03-30 22:48:02,546] Register - Step 04: Enter to Email textbox with value is 'johnterry8406@mail.net'
+[2022-03-30 22:48:02,641] Register - Step 05: Enter to Password textbox with value is '123456'
+[2022-03-30 22:48:02,693] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[2022-03-30 22:48:02,757] Register - Step 07: Click to 'Register' button
+[2022-03-30 22:48:03,794] Register - Step 08: Verify Register success message is displayed
+[2022-03-30 22:48:03,841] Register - Step 09: Click to Logout link
+[2022-03-30 22:48:04,786] Login - Step 01: Navigate to Login page
+[2022-03-30 22:48:05,792] Login - Step 02: Enter to Email textbox with value is 'johnterry8406@mail.net'
+[2022-03-30 22:48:05,867] Login - Step 03: Enter to Password textbox with value is '123456'
+[2022-03-30 22:48:05,920] Login - Step 04: Click to Login button
+[2022-03-30 22:48:06,851] My Account - Step 01: Navigate to My Account link
+[2022-03-30 22:48:08,088] My Account - Step 02: Verify 'Customer Info' page is displayed
+[2022-03-30 22:48:08,133] My Account - Step 03: Verify 'First Name' value is correctly
+[2022-03-30 22:48:08,169] My Account - Step 04: Verify 'Last Name' value is correctly
+[2022-03-30 22:48:08,201] My Account - Step 05: Verify 'Email Name' value is correctly
+[2022-03-30 22:48:08,238] OS name = windows 10
+[2022-03-30 22:48:08,238] Driver instance name = firefoxdriver: firefox on windows (473ab076-26e6-474f-9092-91c8c2cc3759)

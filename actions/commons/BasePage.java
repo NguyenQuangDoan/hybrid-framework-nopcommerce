@@ -28,6 +28,10 @@ import pageObjects.users.UserRewardPointPageObject;
 import pageUIs.jQuery.uploadFiles.BasePageJQueryUI;
 import pageUIs.nopCommerce.BasePageNopCommerceUI;
 
+/**
+ * @author Admin
+ *
+ */
 public class BasePage {
 
 	public static BasePage getBasePage() {
@@ -601,9 +605,85 @@ public class BasePage {
 		}
 	}
 
+	// Pattern Object
 	public void openPagesAtMyAccountByPageName(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
 		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA, pageName);
+	}
+
+	/**
+	 * Enter to dynamic textbox by ID
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param textboxID
+	 * @param value
+	 */
+	public void inputToTextboxByID(WebDriver driver, String textboxID, String value) {
+		waitForAllElementVisible(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, textboxID);
+		sendkeysToElement(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, value, textboxID);
+	}
+
+	/**
+	 * Click to button by Text
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param buttonText
+	 */
+	public void clickToButtonByText(WebDriver driver, String buttonText) {
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+	}
+
+	/**
+	 * Select item in dropdown by name attribute
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param dropdownAttributeName
+	 * @param itemValue
+	 */
+	public void selectToDropDownByName(WebDriver driver, String dropdownAttributeName, String itemValue) {
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_DROPDOWN_BY_NAME, dropdownAttributeName);
+		selectItemInDefaultDropdown(driver, BasePageNopCommerceUI.DYNAMIC_DROPDOWN_BY_NAME, itemValue,
+				dropdownAttributeName);
+	}
+
+	/**
+	 * Click to dynamic radio button by label
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param radioButtonLabelName
+	 */
+	public void clickToRadioButtonByLabel(WebDriver driver, String radioButtonLabelName) {
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioButtonLabelName);
+		checkToRadioOrCheckbox(driver, BasePageNopCommerceUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioButtonLabelName);
+	}
+
+	/**
+	 * Click to dynamic checkbox by label
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param checkboxLabelName
+	 */
+	public void clickToCheckboxByLabel(WebDriver driver, String checkboxLabelName) {
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_CHECKBOX_BY_LABEL, checkboxLabelName);
+		checkToRadioOrCheckbox(driver, BasePageNopCommerceUI.DYNAMIC_CHECKBOX_BY_LABEL, checkboxLabelName);
+	}
+
+	/**
+	 * Get dynamic textbox value by ID
+	 * 
+	 * @author Doan Nguyen
+	 * @param driver
+	 * @param textboxValue
+	 */
+	public String getTextboxValueByID(WebDriver driver, String textboxID) {
+		waitForAllElementVisible(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, textboxID);
+		return getAttributeValue(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, "value", textboxID);
 	}
 
 	// Level_08_Switch_Role
