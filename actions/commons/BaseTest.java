@@ -6,10 +6,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.joda.time.DateTime;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -36,10 +39,14 @@ public abstract class BaseTest {
 
 		if (browser == browserList.FIREFOX) {
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setAcceptInsecureCerts(true);
+			driver = new FirefoxDriver(firefoxOptions);
 		} else if (browser == browserList.CHROME) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setAcceptInsecureCerts(true);
+			driver = new ChromeDriver(chromeOptions);
 		} else if (browser == browserList.EDGE) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
@@ -182,5 +189,34 @@ public abstract class BaseTest {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	protected String getCurrentDate() {
+		DateTime nowUTC = new DateTime();
+		int day = nowUTC.getDayOfMonth();
+		if (day < 10) {
+			String dayValue = "0" + day;
+			return dayValue;
+		}
+		return day + "";
+	}
+
+	protected String getCurrentMonth() {
+		DateTime now = new DateTime();
+		int month = now.getMonthOfYear();
+		if (month < 10) {
+			String monthValue = "0" + month;
+			return monthValue;
+		}
+		return month + "";
+	}
+
+	protected String getCurrentYear() {
+		DateTime now = new DateTime();
+		return now.getYear() + "";
+	}
+
+	protected String getCurrentDay() {
+		return getCurrentDate() + "/" + getCurrentMonth() + "/" + getCurrentYear();
 	}
 }

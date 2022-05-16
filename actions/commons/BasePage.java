@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObject.wordpress.UserHomePO;
 import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.users.UserAddressPageObject;
 import pageObjects.users.UserCustomerInfoPageObject;
@@ -691,6 +692,12 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageNopCommerceUI.ADMIN_LOGOUT_LINK);
 		clickToElement(driver, BasePageNopCommerceUI.ADMIN_LOGOUT_LINK);
 		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+
+	public UserHomePO openEndUserSite(WebDriver driver, String urlEndUser) {
+		openUrl(driver, urlEndUser);
+		;
+		return pageObject.wordpress.PageGeneratorManager.getUserHomePage(driver);
 	}
 
 	public UserHomePageObject clickToUserLogoutLink(WebDriver driver) {
