@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObject.wordpress.AdminDashboardPO;
 import pageObject.wordpress.UserHomePO;
 import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.users.UserAddressPageObject;
@@ -203,6 +204,11 @@ public class BasePage {
 		getWebElement(driver, locatorType).sendKeys(value);
 	}
 
+	public void clearValueInElementByDeleteKey(WebDriver driver, String locatorType) {
+		WebElement element = this.getWebElement(driver, locatorType);
+		element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}
+
 	public void sendkeysToElement(WebDriver driver, String locatorType, String textValue, String... dynamicValues) {
 		getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).clear();
 		getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).sendKeys(textValue);
@@ -323,6 +329,20 @@ public class BasePage {
 	public boolean isElementUndisplayed(WebDriver driver, String locator) {
 		overrideGlobalTimeout(driver, ShortTimeOut);
 		List<WebElement> elements = getWebElements(driver, locator);
+		overrideGlobalTimeout(driver, longTimeout);
+
+		if (elements.size() == 0) {
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isElementUndisplayed(WebDriver driver, String locator, String... dynamicValues) {
+		overrideGlobalTimeout(driver, ShortTimeOut);
+		List<WebElement> elements = getWebElements(driver, getDynamicXpath(locator, dynamicValues));
 		overrideGlobalTimeout(driver, longTimeout);
 
 		if (elements.size() == 0) {
@@ -696,8 +716,12 @@ public class BasePage {
 
 	public UserHomePO openEndUserSite(WebDriver driver, String urlEndUser) {
 		openUrl(driver, urlEndUser);
-		;
 		return pageObject.wordpress.PageGeneratorManager.getUserHomePage(driver);
+	}
+
+	public AdminDashboardPO openAdminSite(WebDriver driver, String urlAdmin) {
+		openUrl(driver, urlAdmin);
+		return pageObject.wordpress.PageGeneratorManager.getAdminDashboardPage(driver);
 	}
 
 	public UserHomePageObject clickToUserLogoutLink(WebDriver driver) {
