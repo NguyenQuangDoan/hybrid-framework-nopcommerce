@@ -37,6 +37,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 		this.urlEndUser = urlEndUser;
 		driver = getBrowserDriver(browserName, this.urlAdmin);
 		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Pre-condition - Step 02: Enter to username textbox with value:" + adminUsername);
 		adminLoginPage.enterToUsernameTextbox(adminUsername);
@@ -55,9 +56,11 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Create_Post - Step 02: Get 'Search Posts' page url");
 		searchPostUrl = adminPostSearchPage.getPageUrl(driver);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Create_Post - Step 03: Click on 'Add new' button");
 		adminPostAddNewPage = adminPostSearchPage.clickToAddNewButton();
+		showBrowserConsoleLogs(driver);
 
 		log.info("Create Post - Step 04: Close the overlay screen");
 		adminPostAddNewPage.clickToCloseButtonOfOverlayScreen();
@@ -82,6 +85,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	public void Post_02_Search_And_View_Post() {
 		log.info("Search_Post - Step 01: Open 'Search Post' page");
 		adminPostSearchPage = adminPostAddNewPage.openSearchPostPageUrl(searchPostUrl);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Search_Post - Step 02: Enter to Search textbox");
 		adminPostSearchPage.enterToSearchTextbox(postTitle);
@@ -97,6 +101,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Search_Post - Step 06: Open End User site");
 		userHomePage = adminPostSearchPage.openEndUserSite(driver, this.urlEndUser);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Search_Post - Step 07: Verify Post info displayed at Home page");
 		verifyTrue(userHomePage.isPostInfoDisplayedWithPostTitle(postTitle));
@@ -106,6 +111,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Search_Post - Step 08: Click to Post title");
 		userPostDetailPage = userHomePage.clickToPostTitle(postTitle);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Search_Post - Step 09: Verify Post info displayed at Post detail page");
 		verifyTrue(userPostDetailPage.isPostDetailInfoDisplayedWithPostTitle(postTitle));
@@ -118,9 +124,11 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	public void Post_03_Edit_Post() {
 		log.info("Edit_Post - Step 01: Open Admin site");
 		adminDashboardPage = userPostDetailPage.openAdminSite(driver, this.urlAdmin);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 02: Click on 'Post' menu link");
 		adminPostSearchPage = adminDashboardPage.clickToPostMenuLink();
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 03: Enter to Search textbox");
 		adminPostSearchPage.enterToSearchTextbox(postTitle);
@@ -130,6 +138,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Edit_Post - Step 05: Click to Post title link and navigate to Edit Post page");
 		adminPostAddNewPage = adminPostSearchPage.clickToPostTitleLink(postTitle);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 06: Enter to post title");
 		adminPostAddNewPage.enterToAddnewPostTitle(editPostTitle);
@@ -145,6 +154,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Edit_Post - Step 10: Open 'Search Post' page");
 		adminPostSearchPage = adminPostAddNewPage.openSearchPostPageUrl(searchPostUrl);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 11: Enter to Search textbox");
 		adminPostSearchPage.enterToSearchTextbox(editPostTitle);
@@ -160,6 +170,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Edit_Post - Step 15: Open End User site");
 		userHomePage = adminPostSearchPage.openEndUserSite(driver, this.urlEndUser);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 16: Verify Post info displayed at Home page");
 		verifyTrue(userHomePage.isPostInfoDisplayedWithPostTitle(editPostTitle));
@@ -169,6 +180,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Edit_Post - Step 17: Click to Post title");
 		userPostDetailPage = userHomePage.clickToPostTitle(editPostTitle);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Edit_Post - Step 18: Verify Post info displayed at Post detail page");
 		verifyTrue(userPostDetailPage.isPostDetailInfoDisplayedWithPostTitle(editPostTitle));
@@ -181,9 +193,11 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	public void Post_04_Delete_Post() {
 		log.info("Delete_Post - Step 01: Open Admin site");
 		adminDashboardPage = userPostDetailPage.openAdminSite(driver, this.urlAdmin);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Delete_Post - Step 02: Click on 'Post' menu link");
 		adminPostSearchPage = adminDashboardPage.clickToPostMenuLink();
+		showBrowserConsoleLogs(driver);
 
 		log.info("Delete_Post - Step 03: Enter to Search textbox");
 		adminPostSearchPage.enterToSearchTextbox(editPostTitle);
@@ -214,6 +228,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Delete_Post - Step 12: Open End User site");
 		userHomePage = adminPostSearchPage.openEndUserSite(driver, this.urlEndUser);
+		showBrowserConsoleLogs(driver);
 
 		log.info("Delete_Post - Step 13: Verify Post title undisplayed at Home page");
 		verifyTrue(userHomePage.isPostInfoUndisplayedWithPostTitle(editPostTitle));
@@ -223,6 +238,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 
 		log.info("Delete_Post - Step 15: Click to Search Posts button");
 		userSearchPostPage = userHomePage.clickToSearchButton();
+		showBrowserConsoleLogs(driver);
 
 		log.info("Delete_Post - Step 16: Verify 'Nothing Found' message is displayed");
 		verifyTrue(userSearchPostPage.isNothingFoundMessageDisplayed("Nothing Found"));
