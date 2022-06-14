@@ -19,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -81,6 +82,9 @@ public abstract class BaseTest {
 		} else if (browser == browserList.EDGE) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+		} else if (browser == browserList.SAFARI) {
+//			WebDriverManager.safaridriver().setup();
+			driver = new SafariDriver();
 		} else {
 			throw new RuntimeException("This browser is not supported");
 		}
